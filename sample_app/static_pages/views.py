@@ -1,12 +1,14 @@
 from django.views.generic.base import TemplateView
 
+from ..helpers.application_helper import full_title
+
 
 class HelpView(TemplateView):
     template_name = 'static_pages/help.html'
     
     def get_context_data(self, **kwargs):
         context = super(HelpView, self).get_context_data(**kwargs)
-        context['title'] = 'Help'
+        context['title'] = full_title('Help')
         return context
 
 
@@ -17,7 +19,7 @@ class HomeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
-        context['title'] = 'Home'
+        context['title'] = full_title()
         return context
 
 
@@ -28,7 +30,7 @@ class AboutView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(AboutView, self).get_context_data(**kwargs)
-        context['title'] = 'About'
+        context['title'] = full_title('About')
         return context
 
 
@@ -39,7 +41,7 @@ class ContactView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(ContactView, self).get_context_data(**kwargs)
-        context['title'] = 'Contact'
+        context['title'] = full_title('Contact')
         return context
 
 
